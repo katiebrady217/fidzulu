@@ -1,0 +1,32 @@
+.header-bar {
+    background-color: #14AA2B;
+    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-bar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.header-bar-link:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    width: 2px;
+    height: 2rem;
+    background-color: white;
+    margin: 0 1rem;
+    margin-left: 1rem;
+    margin-right: 1 rem;
+}
+
