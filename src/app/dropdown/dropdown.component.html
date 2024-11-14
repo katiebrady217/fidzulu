@@ -1,0 +1,8 @@
+<label for="data">Choose a dataset:</label>
+
+<select name="data" id="data" (click)="loadDataList(value)">
+    <option value="" selected></option>
+        <option *ngFor="let option of options" [value]="option" >
+            {{ option }}
+        </option>
+</select>
