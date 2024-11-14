@@ -13,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { TeamInfoComponent } from './components/team-info/team-info.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     HomeComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    TeamInfoComponent
   ],
   imports: [
     BrowserModule,
