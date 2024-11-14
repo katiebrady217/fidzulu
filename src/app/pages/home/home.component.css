@@ -1,0 +1,12 @@
+.content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdowns-container{
+    margin: 40px 10px 20px 10px;
+    display: flex;
+    align-items: center;
+    
+}
