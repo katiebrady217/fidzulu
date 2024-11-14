@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'fidzulu';
 
-  listOfData: string[] = ['Bike','Food','Toys','Books','Books','DVDs','Laptops']; 
+  
   
 }

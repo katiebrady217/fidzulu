@@ -7,6 +7,9 @@ import { CapitalizeFirstPipe } from './pipes/capilalise-first';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     TableComponent, 
     CapitalizeFirstPipe,
     DropdownComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
