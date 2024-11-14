@@ -1,10 +1,12 @@
-<div class="categories">
-<label for="data">Choose a dataset:</label>
 
-<select name="data" id="data"  (input)="loadDataList($event)">
-    <option value="" selected></option>
-        <option *ngFor="let option of options" [value]="option" >
-            {{ option }}
-        </option>
+<div class="dropdown-container">
+    <label class="dropdown-label" for="data">Choose a dataset:</label>
+
+ <select name="data" id="data" class="select-styling" (input)="loadDataList($event)">
+        <option value="">Select</option>
+            <option *ngFor="let option of options" [value]="option" >
+                {{ option }}
+            </option>
 </select>
 </div>
+
