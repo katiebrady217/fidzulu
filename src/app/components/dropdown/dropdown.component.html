@@ -1,7 +1,7 @@
 <label for="data">Choose a dataset:</label>
 
-<select name="data" id="data" (click)="loadDataList(value)">
-    <option value="" selected></option>
+<select name="data" id="data"  (input)="loadDataList($event)">
+    <!-- <option value="All" ></option> -->
         <option *ngFor="let option of options" [value]="option" >
             {{ option }}
         </option>
