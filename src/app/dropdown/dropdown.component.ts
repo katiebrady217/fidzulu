@@ -12,6 +12,8 @@ export class DropdownComponent {
   errorMessage: string = 'Error';
   value: string ='';
   dataObject: Object[]=[];
+  dataObject: Object[]=[];
+
 
   constructor(private dataService: ServiceService){}
 
