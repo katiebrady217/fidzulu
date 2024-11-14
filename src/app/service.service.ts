@@ -7,12 +7,12 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ServiceService {
 
-  public baseUrl : string = 'http://localhost:8080/'
+  public baseUrl : string = 'http://localhost:4200/classA/'
   
   constructor(private http: HttpClient) { }
 
   getData(param:string): Observable<Object[]>{
-    const getUrl = `${this.baseUrl}${param}`;
+    const getUrl = `${this.baseUrl}${param}/all/location`;
 
     return this.http.get<Object[]>(getUrl)
                     .pipe(catchError(this.handleError));
