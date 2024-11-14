@@ -11,6 +11,8 @@ export class DropdownComponent {
   @Input() options: string[] = [];
   errorMessage: string = 'Error';
   value: string ='';
+  dataObject: Object[]=[];
+
 
   constructor(private dataService: ServiceService){}
 
@@ -22,9 +24,9 @@ export class DropdownComponent {
     this.dataService.getData(value)
     .subscribe({
         next: data => { 
-            this.dataSet = data;
+            this.dataObject = data;
             this.errorMessage = '';
-            console.log(this.data)
+            console.log(this.dataObject)
         },
         error: e => this.errorMessage = e
     });
