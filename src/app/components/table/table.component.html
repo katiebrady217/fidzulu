@@ -1,0 +1,17 @@
+<div class="account-table-container">
+    <table *ngIf="data.length" class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let key of keys | keyvalue">{{ key.value  | capitalizeFirst }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows"> 
+            <td *ngFor="let value of row">{{ value }}</td> 
+        </tr>
+      </tbody>
+    </table>
+    <h2 class="prompt" *ngIf="mockBookData.length == 0">
+      Create a trading account to begin trading
+    </h2>
+  </div>
