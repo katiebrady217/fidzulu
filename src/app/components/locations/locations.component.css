@@ -8,3 +8,10 @@
     line-height: 1.5em;
     font-size: 18px;
   }
+
+  .select-styling{
+    height: 39px;
+    padding: 0.25rem 1rem;
+    font-size: 16px;
+
+  }

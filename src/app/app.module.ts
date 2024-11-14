@@ -27,9 +27,8 @@ import { LocationsComponent } from './components/locations/locations.component';
     HomeComponent,
     AboutComponent,
     FooterComponent,
-    LocationsComponent
+    LocationsComponent,
     TeamInfoComponent
-
   ],
   imports: [
     BrowserModule,
