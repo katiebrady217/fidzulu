@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
-import { CapitalizeFirstPipe } from './pipes/capilalise-first';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { CapitalizeFirstPipe } from './pipes/capilalise-first';
 
 @NgModule({
   declarations: [
