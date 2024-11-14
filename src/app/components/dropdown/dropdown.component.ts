@@ -21,15 +21,8 @@ export class DropdownComponent {
   loadDataList(event:Event){
     const selectedElement = event.target as HTMLSelectElement;
     this.value = selectedElement.value;
-    this.dataService.getData(this.value)
-    .subscribe({
-        next: data => { 
-            this.dataObject = data;
-            this.errorMessage = '';
-            console.log(this.dataObject)
-        },
-        error: e => this.errorMessage = e
-    });
+    this.dataService.saveSelection(this.value);
+}
+}
 
-}
-}
+
