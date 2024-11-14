@@ -1,8 +1,10 @@
+<div class="categories">
 <label for="data">Choose a dataset:</label>
 
 <select name="data" id="data"  (input)="loadDataList($event)">
-    <!-- <option value="All" ></option> -->
+    <option value="" selected></option>
         <option *ngFor="let option of options" [value]="option" >
             {{ option }}
         </option>
 </select>
+</div>

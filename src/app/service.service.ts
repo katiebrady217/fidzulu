@@ -8,11 +8,19 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class ServiceService {
 
   public baseUrl : string = 'http://localhost:4200/classA/'
+  param: string = '';
+  update: string = '';
   
   constructor(private http: HttpClient) { }
 
-  getData(param:string): Observable<Object[]>{
-    const getUrl = `${this.baseUrl}${param}/all/location`;
+  saveSelection(param:string):String{
+    this.update = this.baseUrl.concat(param)
+    return this.update;
+  }
+
+  getData(location:string): Observable<Object[]>{
+    const getUrl = `${this.update}/all/${location}`;
+    console.log(getUrl);
 
     return this.http.get<Object[]>(getUrl)
                     .pipe(catchError(this.handleError));
