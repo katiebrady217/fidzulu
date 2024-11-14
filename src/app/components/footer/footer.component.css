@@ -1,0 +1,17 @@
+.footer-bar{
+    margin: 0 auto 0 auto;
+    display: block;
+    bottom: 0;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+p {
+    font-family: 'Fidelity-Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height:1.5em;
+    color: #000000;
+    box-sizing: content-box;
+    text-align: center;
+}

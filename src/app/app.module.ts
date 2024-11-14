@@ -7,6 +7,7 @@ import { CapitalizeFirstPipe } from './pipes/capilalise-first';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     TableComponent, 
     CapitalizeFirstPipe,
     DropdownComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
