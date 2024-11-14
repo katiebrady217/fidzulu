@@ -20,4 +20,10 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a footer of "Copyright 1998-2021 FMR LLC. All Rights Reserved."', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toBe('Copyright 1998-2021 FMR LLC. All Rights Reserved.');
+  })
+
 });
