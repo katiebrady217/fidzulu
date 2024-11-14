@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,13 +10,16 @@ export class DropdownComponent {
 
   @Input() options: string[] = [];
   errorMessage: string = 'Error';
+  value: string ='';
+
+  constructor(private dataService: ServiceService){}
 
   ngOnInit(){
     this.loadDataList('')
   }
 
-  loadDataList(param:string){
-    this.dataService.getData(param)
+  loadDataList(value:string){
+    this.dataService.getData(value)
     .subscribe({
         next: data => { 
             this.dataSet = data;
