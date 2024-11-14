@@ -1,7 +1,7 @@
-import { CapilaliseFirst } from './capilalise-first';
+import { CapitalizeFirstPipe } from './capilalise-first';
 
 describe('CapilaliseFirst', () => {
   it('should create an instance', () => {
-    expect(new CapilaliseFirst()).toBeTruthy();
+    expect(new CapitalizeFirstPipe()).toBeTruthy();
   });
 });

@@ -100,7 +100,7 @@ export class TableComponent {
 
   keys: string[] = [];
   rows: any[] = [];
-  data: any[] = this.mockFoodData;
+  data: any[] = this.mockBikeData;
 
   ngOnInit() {
     if (this.data.length > 0) {
