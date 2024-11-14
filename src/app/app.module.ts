@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+
+import { CapitalizeFirstPipe } from './pipes/capilalise-first';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { CapitalizeFirstPipe } from './pipes/capilalise-first';
 
 @NgModule({
   declarations: [

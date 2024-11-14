@@ -2,7 +2,7 @@
 <div class="dropdown-container">
     <label class="dropdown-label" for="data">Choose a dataset:</label>
     
-    <select name="data" id="data" class="select-styling" (click)="loadDataList(value)">
+    <select name="data" id="data" class="select-styling" (input)="loadDataList($event)">
         <option value="">Select</option>
             <option *ngFor="let option of options" [value]="option" >
                 {{ option }}
