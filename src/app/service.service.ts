@@ -3,40 +3,42 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceService {
-
-  public baseUrl : string = 'http://localhost:4200/classA/'
+  public baseUrl: string = 'http://localhost:4200/classA/';
   param: string = '';
   update: string = '';
-  
-  constructor(private http: HttpClient) { }
 
-  saveSelection(param:string):String{
-    this.update = this.baseUrl.concat(param)
+  constructor(private http: HttpClient) {}
+
+  saveSelection(param: string): String {
+    this.update = this.baseUrl.concat(param);
     return this.update;
   }
 
-  getData(location:string): Observable<Object[]>{
+  getData(location: string): Observable<Object[]> {
     const getUrl = `${this.update}/all/${location}`;
     console.log(getUrl);
 
-    return this.http.get<Object[]>(getUrl)
-                    .pipe(catchError(this.handleError));
+    return this.http.get<Object[]>(getUrl).pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ProgressEvent) {
-        
-        console.error('A client-side or network error occurred; ' +
-            `${error.message}, ${error.status}, ${error.statusText}`);
+      console.error(
+        'A client-side or network error occurred; ' +
+          `${error.message}, ${error.status}, ${error.statusText}`
+      );
     } else {
-        
-        console.error(`Backend returned code ${error.status}, ` +
-            `body was: ${JSON.stringify(error.error)}`);
+      console.error(
+        `Backend returned code ${error.status}, ` +
+          `body was: ${JSON.stringify(error.error)}`
+      );
     }
-    
-    return throwError(() => 'Unable to contact service; please try again later.');
+
+    return throwError(
+      () => 'Unable to contact service; please try again later.'
+    );
   }
 }
