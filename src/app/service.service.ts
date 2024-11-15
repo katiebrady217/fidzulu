@@ -7,7 +7,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ServiceService {
 
-  public baseUrl : string = 'http://localhost:4200/classA/'
+  public baseUrl : string = 'http://localhost:8080/classA/'
   param: string = '';
   update: string = '';
   
@@ -20,6 +20,15 @@ export class ServiceService {
 
   getData(location:string): Observable<Object[]>{
     const getUrl = `${this.update}/all/${location}`;
+    console.log(getUrl);
+
+    return this.http.get<Object[]>(getUrl)
+                    .pipe(catchError(this.handleError));
+  }
+
+  getTeam(team:string){
+    const getUrl = `${this.update}${team}`;
+
     console.log(getUrl);
 
     return this.http.get<Object[]>(getUrl)
