@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  selectedValue: string = '';
+    onSelectionChange(value: string) {
+    this.selectedValue = value;
+    console.log("value: ",this.selectedValue);
+  }
 
   mockFoodData: any[] = [
     {

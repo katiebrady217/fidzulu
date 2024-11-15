@@ -6,7 +6,7 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ServiceService {
-  public baseUrl: string = 'http://localhost:4200/';
+  public baseUrl: string = 'http://localhost:';
   param: string = '';
   update: string = '';
   completeUrl: string = '';
@@ -18,21 +18,22 @@ export class ServiceService {
   saveSelection(param: string): String {
     console.log("param: " + param)
     if(this.classA.includes(param)){
-      this.update = this.baseUrl.concat("classA/")
+      this.update = this.baseUrl.concat("3021/classA/")
     }
     if(this.classB.includes(param))
-      this.update = this.baseUrl.concat("classB/")
+      this.update = this.baseUrl.concat("3022/classB/")
     this.update = this.update.concat(param);
     return this.update;
   }
 
   saveLocation(location: string): String {
     this.completeUrl = `${this.update}/all/${location}`
-    console.log(this.completeUrl);
+    //console.log(this.completeUrl);
     return this.completeUrl;
   }
 
   getData(): Observable<Object[]> {
+    console.log("Fetching data set");
     const getUrl = this.completeUrl;
     console.log(getUrl);
 
@@ -40,6 +41,7 @@ export class ServiceService {
   }
 
   getTeam(){
+    console.log('Fetching teams data')
     const getUrl = `${this.update}/team`;
 
     console.log(getUrl);

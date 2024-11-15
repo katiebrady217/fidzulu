@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class LocationsComponent {
   errorMessage: string = 'Error';
   dataObject: Object[] = [];
   value: string = '';
+  @Output() selectionChange = new EventEmitter<string>();
 
   constructor(private dataService: ServiceService) {}
 
@@ -24,4 +25,6 @@ export class LocationsComponent {
       const val2 = this.dataService.saveLocation(this.value);
     }
   }
+
+  
 }

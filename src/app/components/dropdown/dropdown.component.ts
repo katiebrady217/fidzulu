@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ServiceService } from '../../service.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class DropdownComponent {
   errorMessage: string = 'Error';
   dataObject: Object[]=[];
   value: string = '';
+  @Output() selectionChange = new EventEmitter<string>();
   
 
 
@@ -21,7 +22,8 @@ export class DropdownComponent {
   loadDataList(event:Event){
     const selectedElement = event.target as HTMLSelectElement;
     this.value = selectedElement.value;
-    this.dataService.saveSelection(this.value);
+    this.selectionChange.emit(this.value);
+    // this.dataService.saveSelection(this.value);
 }
 }
 

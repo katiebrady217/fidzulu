@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChange, SimpleChanges } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
@@ -26,8 +26,8 @@ export class TeamInfoComponent {
   constructor(private dataService: ServiceService){};
   teamInfo: Object[] = [];
 
-  ngOnInit(){
-    this.dataService.getData().subscribe({
+  ngOnChanges(change : SimpleChanges){
+    this.dataService.getTeam().subscribe({
       next: (data) => {
         this.teamInfo = data;
         this.errorMessage = '';
