@@ -12,7 +12,7 @@ export class DropdownComponent {
   errorMessage: string = 'Error';
   dataObject: Object[]=[];
   value: string = '';
-  @Output() selectionChange = new EventEmitter<string>();
+  @Output() productSelectionChange = new EventEmitter<string>();
   
 
 
@@ -22,7 +22,7 @@ export class DropdownComponent {
   loadDataList(event:Event){
     const selectedElement = event.target as HTMLSelectElement;
     this.value = selectedElement.value;
-    this.selectionChange.emit(this.value);
+    this.productSelectionChange.emit(this.value);
     // this.dataService.saveSelection(this.value);
 }
 }

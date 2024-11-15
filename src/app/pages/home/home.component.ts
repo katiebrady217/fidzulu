@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +7,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  selectedValue: string = '';
-    onSelectionChange(value: string) {
-    this.selectedValue = value;
-    console.log("value: ",this.selectedValue);
+  selectedProductValue: string = '';
+  selectedLocationValue: string = '';
+  dataSet: Object[] = [];
+  errorMessage: string = '';
+
+  constructor(private dataService: ServiceService){};
+
+    onProductSelectionChange(value: string) {
+    this.selectedProductValue = value;
+    console.log("Product value: ",this.selectedProductValue);
+    if(this.selectedLocationValue !== '' && this.selectedProductValue  !== ''){
+      this.getProducts();
+    }
   }
+
+  onLocationSelectionChange(value: string) {
+    this.selectedLocationValue = value;
+    console.log("Location value: ",this.selectedLocationValue);
+    if(this.selectedLocationValue !== '' && this.selectedProductValue  !== ''){
+      this.getProducts();
+    }
+  }
+
+  getProducts(){
+      this.dataService.getData(this.selectedProductValue, this.selectedLocationValue).subscribe({
+        next: (data) => {
+          this.dataSet = data;
+          this.errorMessage = '';
+          console.log(this.dataSet);
+        },
+        error: (e) => (this.errorMessage = e),
+      })
+    
+    console.log("Data: " + this.dataSet)}; 
 
   mockFoodData: any[] = [
     {
@@ -101,6 +131,6 @@ export class HomeComponent {
     },
   ];
 
-  listOfData: string[] = ['Bike','Food','Toys','Books','DVDs','Laptops'];
+  listOfData: string[] = ['bikes','food','toys','books','dvds','laptops'];
   listOfLocations: Object[] = [{loc:'IN', name:'India'}, {loc:'IE', name:'Ireland'}, {loc:'US-NC', name:'USA'}];
 }

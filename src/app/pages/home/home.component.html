@@ -1,10 +1,10 @@
 
 <div class="content-container">
     <div class="dropdowns-container">
-        <app-dropdown class="home-dropdown"[options] = "listOfData" (selectionChange)="onSelectionChange($event)"></app-dropdown>
-        <app-locations [locations] = "listOfLocations" (selectionChange)="onSelectionChange($event)"></app-locations>
+        <app-dropdown class="home-dropdown"[options] = "listOfData" (productSelectionChange)="onProductSelectionChange($event)"></app-dropdown>
+        <app-locations [locations] = "listOfLocations" (locationSelectionChange)="onLocationSelectionChange($event)"></app-locations>
     </div>
     <app-team-info></app-team-info>
-    <app-table [productData]="mockBikeData" ></app-table>
+    <app-table [productData]="dataSet" ></app-table>
 </div>
 

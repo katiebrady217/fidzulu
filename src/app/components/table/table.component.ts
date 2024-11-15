@@ -33,15 +33,15 @@ export class TableComponent {
       console.log("rows: " + JSON.stringify(this.rows))
      }
      
-     if (changes['location']){
-      this.dataService.getData().subscribe({
-        next: (data) => {
-          this.dataSet = data;
-          this.errorMessage = '';
-          console.log(this.dataSet);
-        },
-        error: (e) => (this.errorMessage = e),
-      })};
+    //  if (changes['location']){
+    //   this.dataService.getData().subscribe({
+    //     next: (data) => {
+    //       this.dataSet = data;
+    //       this.errorMessage = '';
+    //       console.log(this.dataSet);
+    //     },
+    //     error: (e) => (this.errorMessage = e),
+    //   })};
     
      }
 }
