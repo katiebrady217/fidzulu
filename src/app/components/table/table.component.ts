@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { CapitalizeFirstPipe } from 'src/app/pipes/capilalise-first';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-table',
@@ -11,6 +12,8 @@ import { CapitalizeFirstPipe } from 'src/app/pipes/capilalise-first';
 export class TableComponent {
 
   @Input() productData: any[] = [];
+  errorMessage: string = '';
+  constructor(private dataService: ServiceService){};
 
 
 
@@ -18,7 +21,9 @@ export class TableComponent {
 
   keys: string[] = [];
   rows: any[] = [];
-  data: any[] = this.productData;
+  mockData: any[] = this.productData;
+  dataSet: Object[] = [];
+  
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("productData: " + JSON.stringify(this.productData));
@@ -31,4 +36,16 @@ export class TableComponent {
       console.log("rows: " + JSON.stringify(this.rows))
     
     } }
+
+    ngOnInit(){
+      this.dataService.getData().subscribe({
+        next: (data) => {
+          this.dataSet = data;
+          this.errorMessage = '';
+          console.log(this.dataSet);
+        },
+        error: (e) => (this.errorMessage = e),
+      });
+
+    }
 }
