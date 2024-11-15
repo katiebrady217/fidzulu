@@ -32,6 +32,15 @@ export class ServiceService {
     return this.http.get<Object[]>(getUrl).pipe(catchError(this.handleError));
   }
 
+  getTeam(team:string){
+    const getUrl = `${this.update}${team}`;
+
+    console.log(getUrl);
+
+    return this.http.get<Object[]>(getUrl)
+                    .pipe(catchError(this.handleError));
+  }
+
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ProgressEvent) {
       console.error(
