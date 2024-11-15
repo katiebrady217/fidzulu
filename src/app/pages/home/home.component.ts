@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  listOfData: string[] = ['Bike','Food','Toys','Books','Books','DVDs','Laptops']; 
 
   mockFoodData: any[] = [
     {
@@ -96,4 +95,7 @@ export class HomeComponent {
       publisher: 'HarperCollins',
     },
   ];
+
+  listOfData: string[] = ['Bike','Food','Toys','Books','Books','DVDs','Laptops'];
+  listOfLocations: string[] = ['India', 'Ireland', 'USA'];
 }
