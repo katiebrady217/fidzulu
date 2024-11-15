@@ -97,5 +97,5 @@ export class HomeComponent {
   ];
 
   listOfData: string[] = ['Bike','Food','Toys','Books','Books','DVDs','Laptops'];
-  listOfLocations: string[] = ['India', 'Ireland', 'USA'];
+  listOfLocations: Object[] = [{loc:'IN', name:'India'}, {loc:'IE', name:'Ireland'}, {loc:'US-NC', name:'USA'}];
 }
