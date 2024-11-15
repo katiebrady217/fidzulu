@@ -6,16 +6,22 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class ServiceService {
-
-  public baseUrl : string = 'http://localhost:8080/classA/';
-
+  public baseUrl: string = 'http://localhost:4200/';
   param: string = '';
   update: string = '';
+  classA: String[] = ["Bike", "Food", "Toys"];
+  classB: String[] = ["Books", "DVDs", "Laptops"];
 
   constructor(private http: HttpClient) {}
 
   saveSelection(param: string): String {
-    this.update = this.baseUrl.concat(param);
+    console.log("param: " + param)
+    if(this.classA.includes(param)){
+      this.update = this.baseUrl.concat("classA/")
+    }
+    if(this.classB.includes(param))
+      this.update = this.baseUrl.concat("classB/")
+    this.update = this.update.concat(param);
     return this.update;
   }
 
