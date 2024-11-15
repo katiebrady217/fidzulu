@@ -1,1 +1,9 @@
-
+<h1 class="heading"> Teams </h1>
+<table *ngFor="let team of teams" class="team-table">
+    <tr>
+        <th colspan="3">Team: {{team.teamName}}</th>
+    </tr>
+    <tr>
+        <td *ngFor="let member of team.members">{{member}}</td>
+    </tr>
+</table>

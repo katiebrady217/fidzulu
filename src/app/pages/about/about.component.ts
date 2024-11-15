@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
-
+  teams: any[] =[{
+    teamName: "Group 2",
+    members: ["Agata", "Alessio", "Aleks"]
+  },{
+    teamName: "Group 3",
+    members: ["Agata", "Alessio"]
+  }];
 }
