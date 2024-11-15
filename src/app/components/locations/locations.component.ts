@@ -11,7 +11,7 @@ export class LocationsComponent {
   errorMessage: string = 'Error';
   dataObject: Object[] = [];
   value: string = '';
-  @Output() selectionChange = new EventEmitter<string>();
+  @Output() locationSelectionChange = new EventEmitter<string>();
 
   constructor(private dataService: ServiceService) {}
 
@@ -22,7 +22,8 @@ export class LocationsComponent {
     if (this.value !== '') {
       
       console.log('value: ' + this.value);
-      const val2 = this.dataService.saveLocation(this.value);
+      this.locationSelectionChange.emit(this.value);
+      
     }
   }
 

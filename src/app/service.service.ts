@@ -10,8 +10,8 @@ export class ServiceService {
   param: string = '';
   update: string = '';
   completeUrl: string = '';
-  classA: String[] = ["Bike", "Food", "Toys"];
-  classB: String[] = ["Books", "DVDs", "Laptops"];
+  classA: String[] = ["bikes", "food", "toys"];
+  classB: String[] = ["books", "dvds", "laptops"];
 
   constructor(private http: HttpClient) {}
 
@@ -32,12 +32,26 @@ export class ServiceService {
     return this.completeUrl;
   }
 
-  getData(): Observable<Object[]> {
-    console.log("Fetching data set");
-    const getUrl = this.completeUrl;
-    console.log(getUrl);
+  buildUrl(product: String, location: String): String{
+    console.log("producr: " + product)
+    if(this.classA.includes(product)){
+      this.update = this.baseUrl.concat("3021/classA/")
+      console.log("class a " + this.update)
+    }
+    if(this.classB.includes(product))
+      this.update = this.baseUrl.concat("3022/classB/")
+    this.update = this.update.concat(product + "/all/" + location);
+    console.log("url biolt: " + this.update)
+    return this.update;
+  }
 
-    return this.http.get<Object[]>(getUrl).pipe(catchError(this.handleError));
+  getData(product: String, location: String): Observable<Object[]> {
+    this.buildUrl(product,location);
+    console.log("Fetching data set");
+    const getUrl = this.update;
+    console.log(getUrl);
+ 
+    return this.http.get<Object[]>(getUrl, ).pipe(catchError(this.handleError));
   }
 
   getTeam(){
