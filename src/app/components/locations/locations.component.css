@@ -21,11 +21,13 @@
     align-items: center;
     font-family: sans-serif;
     font-size: 16px;
-    color: black;;
+    color: black;
   }
 
-  .location{ display: flex;
+  .dropdown-container{
+    display: flex;
     width: 260px;
     align-items: center;
     justify-content: space-around;
-    margin: 10px;}
+    margin: 10px;
+  }
