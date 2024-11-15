@@ -14,9 +14,6 @@ export class TableComponent {
   @Input() productData: any[] = [];
   errorMessage: string = '';
   constructor(private dataService: ServiceService){};
-
-
-
   
 
   keys: string[] = [];
@@ -34,10 +31,9 @@ export class TableComponent {
       console.log("keys: " + JSON.stringify(this.keys))
       this.rows = this.productData.map((row) => this.keys.map((key) => row[key])); 
       console.log("rows: " + JSON.stringify(this.rows))
-    
-    } }
-
-    ngOnInit(){
+     }
+     
+     if (changes['location']){
       this.dataService.getData().subscribe({
         next: (data) => {
           this.dataSet = data;
@@ -45,7 +41,7 @@ export class TableComponent {
           console.log(this.dataSet);
         },
         error: (e) => (this.errorMessage = e),
-      });
-
-    }
+      })};
+    
+     }
 }
