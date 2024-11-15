@@ -21,14 +21,7 @@ export class LocationsComponent {
     if (this.value !== '') {
       
       console.log('value: ' + this.value);
-      const val2 = this.dataService.getData(this.value).subscribe({
-        next: (data) => {
-          this.dataObject = data;
-          this.errorMessage = '';
-          console.log(this.dataObject);
-        },
-        error: (e) => (this.errorMessage = e),
-      });
+      const val2 = this.dataService.saveLocation(this.value);
     }
   }
 }

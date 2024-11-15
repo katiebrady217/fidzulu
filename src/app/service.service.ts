@@ -9,6 +9,7 @@ export class ServiceService {
   public baseUrl: string = 'http://localhost:4200/';
   param: string = '';
   update: string = '';
+  completeUrl: string = '';
   classA: String[] = ["Bike", "Food", "Toys"];
   classB: String[] = ["Books", "DVDs", "Laptops"];
 
@@ -25,15 +26,21 @@ export class ServiceService {
     return this.update;
   }
 
-  getData(location: string): Observable<Object[]> {
-    const getUrl = `${this.update}/all/${location}`;
+  saveLocation(location: string): String {
+    this.completeUrl = `${this.update}/all/${location}`
+    console.log(this.completeUrl);
+    return this.completeUrl;
+  }
+
+  getData(): Observable<Object[]> {
+    const getUrl = this.completeUrl;
     console.log(getUrl);
 
     return this.http.get<Object[]>(getUrl).pipe(catchError(this.handleError));
   }
 
-  getTeam(team:string){
-    const getUrl = `${this.update}${team}`;
+  getTeam(){
+    const getUrl = `${this.update}/team`;
 
     console.log(getUrl);
 

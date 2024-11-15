@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-team-info',
@@ -20,4 +21,19 @@ export class TeamInfoComponent {
       "membersNames" : "Benji, Jason, Bartek"
     }
   ]
+  errorMessage: string = '';
+
+  constructor(private dataService: ServiceService){};
+  teamInfo: Object[] = [];
+
+  ngOnInit(){
+    this.dataService.getData().subscribe({
+      next: (data) => {
+        this.teamInfo = data;
+        this.errorMessage = '';
+        console.log(this.teamInfo);
+      },
+      error: (e) => (this.errorMessage = e),
+    });
+}
 }
